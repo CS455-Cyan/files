@@ -154,14 +154,6 @@ GET `/catalog/generalRequirements`
       ]
     }
 
-### Update general requirement
-
-**Request**
-
-PUT `/catalog/generalRequirements/:area`
-
-**Response**
-
 ### View categories, departments, and programs
 
 **Request**
@@ -244,6 +236,127 @@ GET `/catalog/programs`
         }
       ]
     }
+    
+### Search programs
+
+**Request**
+
+GET `/catalog/search/programs`
+
+**Response**
+
+### View courses
+
+**Request**
+
+GET `/catalog/courses`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+        {
+          "_id": "570efd8672a74f2e22e8e5a8",
+          "subjects": [
+            {
+              "name": "Computer Science",
+              "abbreviation": "CS",
+              "_id": "570efd8672a74f2e22e8e5a9",
+              "courses": [
+                {
+                  "title": "Artificial Intelligence",
+                  "number": "470",
+                  "description": "Robots and stuff...",
+                  "_id": "570efd8672a74f2e22e8e5ab",
+                  "offerings": []
+                },
+                {
+                  "title": "Programming Languages",
+                  "number": "410W",
+                  "description": "Fortran...",
+                  "_id": "570efd8672a74f2e22e8e5aa",
+                  "offerings": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
+### View faculty and staff section
+
+**Request**
+
+GET `/catalog/facultyAndStaff`
+
+**Response**
+
+    {
+      "success": true,
+      "data": "Dr. Roden..."
+    }
+    
+## Primary Admin Actions
+
+### Login
+
+### Change password
+
+### Add text section
+
+**Request**
+
+POST `/admin/catalog/textSections`
+
+    {
+      "title": "Expenses",
+      "content": "This sh*t ain't cheap"
+    }
+    
+**Response**
+
+    {
+      "success": true
+    }
+    
+### Update text section
+
+**Request**
+
+PUT `/admin/catalog/textSections/:id`
+
+    {
+      "title": "STUDENT AFFAIRS",
+      "content": "Who's doing who"
+    }
+    
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove text section
+
+**Request**
+
+DELETE `/admin/catalog/textSections/:id`
+    
+**Response**
+
+    {
+      "success": true
+    }
+
+### Update general requirement
+
+**Request**
+
+PUT `/catalog/generalRequirements/:area`
+
+**Response**
 
 ### Add program category
 
@@ -359,7 +472,7 @@ POST `/catalog/programs/:categoryId/:departmentId`
 
 **Request**
 
-POST `/catalog/programs/:categoryId/:programId`
+PUT `/catalog/programs/:categoryId/:programId`
 
     {
       "name": "Secondary Education",
@@ -377,12 +490,52 @@ POST `/catalog/programs/:categoryId/:programId`
 
 **Request**
 
-POST `/catalog/programs/:categoryId/:departmentId/:programId`
+PUT `/catalog/programs/:categoryId/:departmentId/:programId`
 
     {
       "name": "Secondary Education",
       "description": "Teach people sh*t",
       "type": "major"
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove program from category
+
+**Request**
+
+DELETE `/catalog/programs/:categoryId/:programId`
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove program from department
+
+**Request**
+
+DELETE `/catalog/programs/:categoryId/:departmentId/:programId`
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Update faculty and staff section
+
+**Request**
+
+PUT `/admin/catalog/facultyAndStaff`
+
+    {
+      "content": "Dr. Roden Yeah. Dr. Jerkins yeah. Dr. Jenkins yeah."
     }
 
 **Response**
