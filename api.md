@@ -598,10 +598,10 @@ PUT `/admin/catalog/facultyAndStaff`
 
 ### View change requests (created by that admin)
 
-### Create change request
+### Create change request (also available to primary admin)
 
 ### Edit change request (that hasn't been approved/denied)
 
 ### Remove change request (that hasn't been approved/denied)
 
-### View change log
+### View change log (also available to primary admin)
