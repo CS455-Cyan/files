@@ -12,12 +12,12 @@ GET `/catalog/textSections`
       "success": true,
       "data": [
         {
-          "_id": "570ef51ced1ca29a1e60f797",
-          "title": "University Information"
+          "title": "University Information",
+          "_id": "570f27cab1dd956211defce1"
         },
         {
-          "_id": "570ef51ced1ca29a1e60f798",
-          "title": "Academic Procedures"
+          "title": "Academic Procedures",
+          "_id": "570f27cab1dd956211defce0"
         }
       ]
     }
@@ -33,10 +33,9 @@ GET `/catalog/textSections/:id`
     {
       "success": true,
       "data": {
-        "_id": "570ef51ced1ca29a1e60f797",
         "title": "University Information",
         "content": "Yolo.",
-        "__v": 0
+        "_id": "570f27cab1dd956211defce1"
       }
     }
 
@@ -320,7 +319,30 @@ POST `/admin/catalog/textSections`
     {
       "success": true
     }
-    
+
+### Update all text sections (use to re-order them)
+
+**Request**
+
+PUT `/admin/catalog/textSections`
+
+    [
+      {
+        "title": "Academic Procedures",
+        "_id": "570f26c853838f1f11b2a89f"
+      },
+      {
+        "title": "University Information",
+        "_id": "570f26c853838f1f11b2a8a0"
+      }
+    ]
+        
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Update text section
 
 **Request**
@@ -354,7 +376,7 @@ DELETE `/admin/catalog/textSections/:id`
 
 **Request**
 
-PUT `/catalog/generalRequirements/:area`
+PUT `/admin/catalog/generalRequirements/:area`
 
 **Response**
 
@@ -362,7 +384,7 @@ PUT `/catalog/generalRequirements/:area`
 
 **Request**
 
-POST `/catalog/programCategories`
+POST `/admin/catalog/programCategories`
 
 **Response**
 
@@ -370,7 +392,7 @@ POST `/catalog/programCategories`
 
 **Request**
 
-PUT `/catalog/programCategories/:id`
+PUT `/admin/catalog/programCategories/:id`
 
 **Response**
 
@@ -378,7 +400,7 @@ PUT `/catalog/programCategories/:id`
 
 **Request**
 
-DELETE `/catalog/programCategories/:id`
+DELETE `/admin/catalog/programCategories/:id`
 
 **Response**
 
@@ -386,7 +408,7 @@ DELETE `/catalog/programCategories/:id`
 
 **Request**
 
-POST `/catalog/departments/:categoryId`
+POST `/admin/catalog/departments/:categoryId`
 
     {
       "name": "History and Political Science",
@@ -404,7 +426,7 @@ POST `/catalog/departments/:categoryId`
 
 **Request**
 
-PUT `/catalog/departments/:categoryId/:departmentId`
+PUT `/admin/catalog/departments/:categoryId/:departmentId`
 
     {
       "name": "History and Political Science",
@@ -422,7 +444,7 @@ PUT `/catalog/departments/:categoryId/:departmentId`
 
 **Request**
 
-DELETE `/catalog/departments/:categoryId/:departmentId`
+DELETE `/admin/catalog/departments/:categoryId/:departmentId`
 
 **Response**
 
@@ -434,7 +456,7 @@ DELETE `/catalog/departments/:categoryId/:departmentId`
 
 **Request**
 
-POST `/catalog/programs/:categoryId`
+POST `/admin/catalog/programs/:categoryId`
 
     {
       "name": "Political Science",
@@ -453,7 +475,7 @@ POST `/catalog/programs/:categoryId`
 
 **Request**
 
-POST `/catalog/programs/:categoryId/:departmentId`
+POST `/admin/catalog/programs/:categoryId/:departmentId`
 
     {
       "name": "Computer Information Systems",
@@ -472,7 +494,7 @@ POST `/catalog/programs/:categoryId/:departmentId`
 
 **Request**
 
-PUT `/catalog/programs/:categoryId/:programId`
+PUT `/admin/catalog/programs/:categoryId/:programId`
 
     {
       "name": "Secondary Education",
@@ -490,7 +512,7 @@ PUT `/catalog/programs/:categoryId/:programId`
 
 **Request**
 
-PUT `/catalog/programs/:categoryId/:departmentId/:programId`
+PUT `/admin/catalog/programs/:categoryId/:departmentId/:programId`
 
     {
       "name": "Secondary Education",
@@ -508,7 +530,7 @@ PUT `/catalog/programs/:categoryId/:departmentId/:programId`
 
 **Request**
 
-DELETE `/catalog/programs/:categoryId/:programId`
+DELETE `/admin/catalog/programs/:categoryId/:programId`
 
 **Response**
 
@@ -520,7 +542,7 @@ DELETE `/catalog/programs/:categoryId/:programId`
 
 **Request**
 
-DELETE `/catalog/programs/:categoryId/:departmentId/:programId`
+DELETE `/admin/catalog/programs/:categoryId/:departmentId/:programId`
 
 **Response**
 
