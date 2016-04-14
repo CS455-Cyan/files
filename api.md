@@ -550,6 +550,18 @@ DELETE `/admin/catalog/programs/:categoryId/:departmentId/:programId`
       "success": true
     }
 
+### Add course subject
+
+### Update course subject
+
+### Remove course subject
+
+### Add course
+
+### Update course
+
+### Remove course
+
 ### Update faculty and staff section
 
 **Request**
@@ -565,3 +577,31 @@ PUT `/admin/catalog/facultyAndStaff`
     {
       "success": true
     }
+
+### Publish catalog
+
+### View change request queue
+
+### Approve change request
+
+### Deny change request
+
+### View all admins (both primary and secondary)
+
+### Add secondary admin
+
+### Remove secondary admin
+
+### Update admin (change password)
+
+## Secondary Admin Actions
+
+### View change requests (created by that admin)
+
+### Create change request
+
+### Edit change request (that hasn't been approved/denied)
+
+### Remove change request (that hasn't been approved/denied)
+
+### View change log
