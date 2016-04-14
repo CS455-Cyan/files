@@ -2,7 +2,11 @@
 
 ### List custom text sections
 
+**Request**
+
 GET `/catalog/textSections`
+
+**Response**
 
     {
       "success": true,
@@ -19,7 +23,12 @@ GET `/catalog/textSections`
     }
 
 ### View custom text section
+
+**Request**
+
 GET `/catalog/textSections/:id`
+
+**Response**
 
     {
       "success": true,
@@ -32,7 +41,12 @@ GET `/catalog/textSections/:id`
     }
 
 ### List general requirements
+
+**Request**
+
 GET `/catalog/generalRequirements`
+
+**Response**
 
     {
       "success": true,
@@ -141,11 +155,20 @@ GET `/catalog/generalRequirements`
     }
 
 ### Update general requirement
-PUT `/catalog/generalRequirements/:area
 
+**Request**
+
+PUT `/catalog/generalRequirements/:area`
+
+**Response**
 
 ### View categories, departments, and programs
+
+**Request**
+
 GET `/catalog/programs`
+
+**Response**
 
     {
       "success": true,
@@ -223,10 +246,147 @@ GET `/catalog/programs`
     }
 
 ### Add program category
+
+**Request**
+
 POST `/catalog/programCategories`
 
+**Response**
+
 ### Update program category
+
+**Request**
+
 PUT `/catalog/programCategories/:id`
 
+**Response**
+
 ### Remove program category
+
+**Request**
+
 DELETE `/catalog/programCategories/:id`
+
+**Response**
+
+### Add department
+
+**Request**
+
+POST `/catalog/departments/:categoryId`
+
+    {
+      "name": "History and Political Science",
+      "description": "Controversial sh*t",
+      "programs": []
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Update department
+
+**Request**
+
+PUT `/catalog/departments/:categoryId/:departmentId`
+
+    {
+      "name": "History and Political Science",
+      "description": "More controversial sh*t",
+      "programs": []
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove department
+
+**Request**
+
+DELETE `/catalog/departments/:categoryId/:departmentId`
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Add program to category
+
+**Request**
+
+POST `/catalog/programs/:categoryId`
+
+    {
+      "name": "Political Science",
+      "description": "Controversial sh*t",
+      "type": "minor",
+      "requirements": []
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Add program to department
+
+**Request**
+
+POST `/catalog/programs/:categoryId/:departmentId`
+
+    {
+      "name": "Computer Information Systems",
+      "description": "We're more well-rounded",
+      "type": "major",
+      "requirements": []
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Update program in category
+
+**Request**
+
+POST `/catalog/programs/:categoryId/:programId`
+
+    {
+      "name": "Secondary Education",
+      "description": "Teach people sh*t",
+      "type": "major"
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Update program in department
+
+**Request**
+
+POST `/catalog/programs/:categoryId/:departmentId/:programId`
+
+    {
+      "name": "Secondary Education",
+      "description": "Teach people sh*t",
+      "type": "major"
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
