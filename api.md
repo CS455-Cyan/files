@@ -335,6 +335,38 @@ GET `/catalog/courses`
       ]
     }
 
+### Search courses
+
+**Request**
+
+GET `/catalog/search/courses`
+
+    {
+      "term": "programming"
+    }
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+        {
+          "_id": "5710575696a0b8d03b455453",
+          "title": "Programming for the Web",
+          "number": "325",
+          "description": "Javascript. Not Java.",
+          "offerings": ["Spring"]
+        },
+        {
+          "_id": "5710575696a0b8d03b455452",
+          "title": "Programming Languages",
+          "number": "410W",
+          "description": "Fortran...",
+          "offerings": ["Fall", "Spring"]
+        }
+      ]
+    }
+
 ### View faculty and staff section
 
 **Request**
