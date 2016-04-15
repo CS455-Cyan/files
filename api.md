@@ -1,3 +1,9 @@
+# Notes
+
+* PUT requests of course specify updating a record. The way they will work in our application is that they will change the *specified fields*, but fields not specified will remain as they were. In other words, it is an change rather than a replacement of the record. So say we sent the following JSON with a PUT request: `{"name": "new name"}`. This would result in a name change only; all the other fields of that record would remain as they were.
+
+# API Requests
+
 ## Public User Actions
 
 ### List custom text sections
@@ -370,6 +376,20 @@ POST `/admin/login`
 
 ### Change password
 
+**Request**
+
+PUT `/admin/password`
+
+    {
+      "password": "punchcards_rock"
+    }
+
+**Response**
+
+    {
+      "success": true,
+    }
+
 ### Add text section
 
 **Request**
@@ -445,7 +465,31 @@ DELETE `/admin/catalog/textSections/:id`
 
 PUT `/admin/catalog/generalRequirements/:area`
 
+    {
+      "name": "Written Composition",
+      "requirements": [
+        {
+          "name": "requirement",
+          "_id": "570f27cab1dd956211defcf0",
+          "items": [
+            {
+              "separator": "AND",
+              "write_in": "optional",
+              "_id": "570f27cab1dd956211defcf1",
+              "courses": [
+                "570efc799c1394fc21eb9f6b"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+
 **Response**
+
+    {
+      "success": true
+    }
 
 ### Add program category
 
@@ -453,7 +497,16 @@ PUT `/admin/catalog/generalRequirements/:area`
 
 POST `/admin/catalog/programCategories`
 
+    {
+      "name": "College of Nursing",
+      "description": "scrubs"
+    }
+
 **Response**
+
+    {
+      "success": true
+    }
 
 ### Update program category
 
@@ -461,7 +514,16 @@ POST `/admin/catalog/programCategories`
 
 PUT `/admin/catalog/programCategories/:id`
 
+    {
+      "name": "College of Nursing",
+      "description": "Taking care of people"
+    }
+
 **Response**
+
+    {
+      "success": true
+    }
 
 ### Remove program category
 
@@ -470,6 +532,10 @@ PUT `/admin/catalog/programCategories/:id`
 DELETE `/admin/catalog/programCategories/:id`
 
 **Response**
+
+    {
+      "success": true
+    }
 
 ### Add department
 
