@@ -685,15 +685,92 @@ DELETE `/admin/catalog/programs/:categoryId/:departmentId/:programId`
 
 ### Add course subject
 
+**Request**
+
+POST `/admin/catalog/subjects`
+
+    {
+      "name": "Psychology",
+      "abbreviation": "PY"
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Update course subject
+
+**Request**
+
+PUT `/admin/catalog/subjects/:id`
+
+    {
+      "name": "Sociology",
+      "abbreviation": "SO"
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### Remove course subject
 
+**Request**
+
+DELETE `/admin/catalog/subjects/:id`
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Add course
+
+**Request**
+
+POST `/admin/catalog/courses/:subjectId`
+
+    {
+      "title": "Cognitive Psychology",
+      "number": 385,
+      "description": "How your brain works",
+      "offerings": ["Fall"]
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### Update course
 
+POST `/admin/catalog/courses/:subjectId/:courseId`
+
+    {
+      "offerings": ["Fall", "Spring"]
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Remove course
+
+DELETE `/admin/catalog/courses/:subjectId/:courseId`
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### Update faculty and staff section
 
@@ -712,6 +789,21 @@ PUT `/admin/catalog/facultyAndStaff`
     }
 
 ### Publish catalog
+
+**Request**
+
+POST `/admin/catalog/publish`
+
+    {
+      "semester": "Fall",
+      "year": "2016"
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### View change request queue
 
