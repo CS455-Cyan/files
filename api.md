@@ -807,9 +807,93 @@ POST `/admin/catalog/publish`
 
 ### View change request queue
 
+**Request**
+
+GET `/admin/changeRequests/queue`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+    		{
+    		  "_id": "571052e8ad4a865d3a18d454",
+    			author: "Sean Connery",
+    		 	timeOfRequest: 1460687978978,
+    			timeOfApproval: 1460687997358,
+    			status: "pending",
+    			requestTypes: [
+    				"Change in Course Description",
+    			],
+    			revisedFacultyCredentials: {
+    				needed: false,
+    				content: null
+    			},
+    			courseListChange: {
+    				needed: false,
+    				content: null
+    			},
+    			effective: {
+    				semester: "Fall",
+    				year: "2016"
+    			},
+    			courseFeeChange: null,
+    			affectedDepartmentsPrograms: "Computer Science and Information Systems",
+    			approvedBy: "Renee Vandiver",
+    			description: "Change course description for CS310 to 'learning how to write assembly for a computer nobody uses any more'"
+    		},
+    		{
+    		  "_id": "571052e8ad4a865d3a18d458",
+    			author: "Captain America",
+    		 	timeOfRequest: 1460687997358,
+    			timeOfApproval: 1460688026114,
+    			status: "pending",
+    			requestTypes: [
+    				"Addition of/Change in Course Fee",
+    			],
+    			revisedFacultyCredentials: {
+    				needed: false,
+    				content: null
+    			},
+    			courseListChange: {
+    				needed: false,
+    				content: null
+    			},
+    			effective: {
+    				semester: "Fall",
+    				year: "2016"
+    			},
+    			courseFeeChange: null,
+    			affectedDepartmentsPrograms: "Computer Science and Information Systems",
+    			approvedBy: "Renee Vandiver",
+    			description: "Change course fee for CS455 to $3000 so nobody can graduate. hehe"
+    		}
+      ]
+    }
+
 ### Approve change request
 
+**Request**
+
+PUT `/admin/changeRequests/approve/:id`
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Deny change request
+
+**Request**
+
+PUT `/admin/changeRequests/deny/:id`
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### View all admins (both primary and secondary)
 
