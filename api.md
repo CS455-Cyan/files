@@ -750,6 +750,8 @@ POST `/admin/catalog/courses/:subjectId`
 
 ### Update course
 
+**Request**
+
 POST `/admin/catalog/courses/:subjectId/:courseId`
 
     {
@@ -763,6 +765,8 @@ POST `/admin/catalog/courses/:subjectId/:courseId`
     }
 
 ### Remove course
+
+**Request**
 
 DELETE `/admin/catalog/courses/:subjectId/:courseId`
 
@@ -818,55 +822,55 @@ GET `/admin/changeRequests/queue`
       "data": [
     		{
     		  "_id": "571052e8ad4a865d3a18d454",
-    			author: "Sean Connery",
-    		 	timeOfRequest: 1460687978978,
-    			timeOfApproval: 1460687997358,
-    			status: "pending",
-    			requestTypes: [
+    			"author": "Sean Connery",
+    		 	"timeOfRequest": 1460687978978,
+    			"timeOfApproval": 1460687997358,
+    			"status": "pending",
+    			"requestTypes": [
     				"Change in Course Description",
     			],
-    			revisedFacultyCredentials: {
-    				needed: false,
-    				content: null
+    			"revisedFacultyCredentials": {
+    				"needed": false,
+    				"content": null
     			},
-    			courseListChange: {
-    				needed: false,
-    				content: null
+    			"courseListChange": {
+    				"needed": false,
+    				"content": null
     			},
-    			effective: {
-    				semester: "Fall",
-    				year: "2016"
+    			"effective": {
+    				"semester": "Fall",
+    				"year": "2016"
     			},
-    			courseFeeChange: null,
-    			affectedDepartmentsPrograms: "Computer Science and Information Systems",
-    			approvedBy: "Renee Vandiver",
-    			description: "Change course description for CS310 to 'learning how to write assembly for a computer nobody uses any more'"
+    			"courseFeeChange": null,
+    			"affectedDepartmentsPrograms": "Computer Science and Information Systems",
+    			"approvedBy": "Renee Vandiver",
+    			"description": "Change course description for CS310 to 'learning how to write assembly for a computer nobody uses any more'"
     		},
     		{
     		  "_id": "571052e8ad4a865d3a18d458",
-    			author: "Captain America",
-    		 	timeOfRequest: 1460687997358,
-    			timeOfApproval: 1460688026114,
-    			status: "pending",
-    			requestTypes: [
+    			"author": "Captain America",
+    		 	"timeOfRequest": 1460687997358,
+    			"timeOfApproval": 1460688026114,
+    			"status": "pending",
+    			"requestTypes": [
     				"Addition of/Change in Course Fee",
     			],
-    			revisedFacultyCredentials: {
-    				needed: false,
-    				content: null
+    			"revisedFacultyCredentials": {
+    				"needed": false,
+    				"content": null
     			},
-    			courseListChange: {
-    				needed: false,
-    				content: null
+    			"courseListChange": {
+    				"needed": false,
+    				"content": null
     			},
-    			effective: {
-    				semester: "Fall",
-    				year: "2016"
+    			"effective": {
+    				"semester": "Fall",
+    				"year": "2016"
     			},
-    			courseFeeChange: null,
-    			affectedDepartmentsPrograms: "Computer Science and Information Systems",
-    			approvedBy: "Renee Vandiver",
-    			description: "Change course fee for CS455 to $3000 so nobody can graduate. hehe"
+    			"courseFeeChange": null,
+    			"affectedDepartmentsPrograms": "Computer Science and Information Systems",
+    			"approvedBy": "Renee Vandiver",
+    			"description": "Change course fee for CS455 to $3000 so nobody can graduate. hehe"
     		}
       ]
     }
@@ -897,11 +901,71 @@ PUT `/admin/changeRequests/deny/:id`
 
 ### View all admins (both primary and secondary)
 
+**Request**
+
+GET `/admin/admins`
+
+**Response**
+
+    [
+      {
+        "_id": "571052e8ad4a865d3a18d465"
+        "username": "captain_america",
+        "privilege": 5,
+        "apps": ["catalog"],
+        "password": "c0a6012970d27f714cdcee6dac4da264"
+      },
+      {
+        "_id": "5710575696a0b8d03b455456",
+        "username": "sean_connery",
+        "privilege": 2,
+        "apps": ["catalog"],
+        "password": "c0a6012970d27f714cdcee6dac4da264"
+      }
+    ]
+
 ### Add secondary admin
+
+**Request**
+
+POST `/admin/admins`
+
+**Response**
+
+    [
+      {
+        "username": "spiderman",
+        "password": "underoos"
+      }
+    ]
+
+### Update admin (change password)
+
+**Request**
+
+PUT `/admin/admins/:id`
+
+      {
+        "password": "password"
+      }
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### Remove secondary admin
 
-### Update admin (change password)
+**Request**
+
+DELETE `/admin/admins/:id`
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ## Secondary Admin Actions
 
