@@ -242,7 +242,52 @@ GET `/catalog/programs`
 
 GET `/catalog/search/programs`
 
+    {
+      "term": "computer"
+    }
+
 **Response**
+
+    {
+      "success": true,
+      "data": [
+        {
+          "type": "major",
+          "name": "Computer Science",
+          "description": "not for the faint of heart",
+          "_id": "570efd8672a74f2e22e8e5a3",
+          "requirements": [
+            {
+              "name": "Core Requirements",
+              "_id": "570efd8672a74f2e22e8e5a4",
+              "items": [
+                {
+                  "separator": "AND",
+                  "_id": "570efd8672a74f2e22e8e5a6",
+                  "courses": [
+                    "570efc799c1394fc21eb9f6b"
+                  ]
+                },
+                {
+                  "separator": "AND",
+                  "_id": "570efd8672a74f2e22e8e5a5",
+                  "courses": [
+                    "570efc799c1394fc21eb9f6a"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "minor",
+          "name": "Human-Computer Interaction/User Experience",
+          "description": "emotional impact cannot be designed - only experienced",
+          "_id": "570efd8672a74f2e22e8e5a2",
+          "requirements": []
+        }
+      ]
+    }
 
 ### View courses
 
@@ -300,6 +345,28 @@ GET `/catalog/facultyAndStaff`
 ## Primary Admin Actions
 
 ### Login
+
+**Request**
+
+POST `/admin/login`
+
+    {
+      "username": "lanel52",
+      "password": "punchcards_rock"
+    }
+
+**Response**
+
+    {
+      "success": true,
+      "apps": [
+        {
+          "id": "catalog",
+          "name": "Catalog",
+          "url": "/catalog"
+        }
+      ]
+    }
 
 ### Change password
 
