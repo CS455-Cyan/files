@@ -824,7 +824,7 @@ GET `/admin/changeRequests/queue`
     		  "_id": "571052e8ad4a865d3a18d454",
     			"author": "Sean Connery",
     		 	"timeOfRequest": 1460687978978,
-    			"timeOfApproval": 1460687997358,
+    			"timeOfApproval": null,
     			"status": "pending",
     			"requestTypes": [
     				"Change in Course Description",
@@ -850,7 +850,7 @@ GET `/admin/changeRequests/queue`
     		  "_id": "571052e8ad4a865d3a18d458",
     			"author": "Captain America",
     		 	"timeOfRequest": 1460687997358,
-    			"timeOfApproval": 1460688026114,
+    			"timeOfApproval": null,
     			"status": "pending",
     			"requestTypes": [
     				"Addition of/Change in Course Fee",
@@ -881,6 +881,10 @@ GET `/admin/changeRequests/queue`
 
 PUT `/admin/changeRequests/approve/:id`
 
+    {
+      "comment": "OK"
+    }
+
 **Response**
 
     {
@@ -892,6 +896,10 @@ PUT `/admin/changeRequests/approve/:id`
 **Request**
 
 PUT `/admin/changeRequests/deny/:id`
+
+    {
+      "comment": "Yeah... No."
+    }
 
 **Response**
 
@@ -907,22 +915,25 @@ GET `/admin/admins`
 
 **Response**
 
-    [
-      {
-        "_id": "571052e8ad4a865d3a18d465"
-        "username": "captain_america",
-        "privilege": 5,
-        "apps": ["catalog"],
-        "password": "c0a6012970d27f714cdcee6dac4da264"
-      },
-      {
-        "_id": "5710575696a0b8d03b455456",
-        "username": "sean_connery",
-        "privilege": 2,
-        "apps": ["catalog"],
-        "password": "c0a6012970d27f714cdcee6dac4da264"
-      }
-    ]
+    {
+      "success": true,
+      "data": [
+        {
+          "_id": "571052e8ad4a865d3a18d465"
+          "username": "captain_america",
+          "privilege": 5,
+          "apps": ["catalog"],
+          "password": "c0a6012970d27f714cdcee6dac4da264"
+        },
+        {
+          "_id": "5710575696a0b8d03b455456",
+          "username": "sean_connery",
+          "privilege": 2,
+          "apps": ["catalog"],
+          "password": "c0a6012970d27f714cdcee6dac4da264"
+        }
+      ]
+    }
 
 ### Add secondary admin
 
@@ -930,14 +941,16 @@ GET `/admin/admins`
 
 POST `/admin/admins`
 
+    {
+      "username": "spiderman",
+      "password": "underoos"
+    }
+
 **Response**
 
-    [
-      {
-        "username": "spiderman",
-        "password": "underoos"
-      }
-    ]
+    {
+      "success": true
+    }
 
 ### Update admin (change password)
 
@@ -971,10 +984,200 @@ DELETE `/admin/admins/:id`
 
 ### View change requests (created by that admin)
 
+**Request**
+
+GET `/admin/changeRequests/userRequests`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+    		{
+    		  "_id": "571052e8ad4a865d3a18d454",
+    			"author": "sean_connery",
+    		 	"timeOfRequest": 1460687978978,
+    			"timeOfApproval": null,
+    			"status": "pending",
+    			"requestTypes": [
+    				"Change in Course Description",
+    			],
+    			"revisedFacultyCredentials": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"courseListChange": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"effective": {
+    				"semester": "Fall",
+    				"year": "2016"
+    			},
+    			"courseFeeChange": null,
+    			"affectedDepartmentsPrograms": "Computer Science and Information Systems",
+    			"approvedBy": "Renee Vandiver",
+    			"description": "Change course description for CS310 to 'learning how to write assembly for a computer nobody uses any more'"
+    		},
+    		{
+    		  "_id": "571052e8ad4a865d3a18d458",
+    			"author": "sean_connery",
+    		 	"timeOfRequest": 1460687978978,
+    			"timeOfApproval": 1460687997358,
+    			"status": "denied",
+    			"requestTypes": [
+    				"Addition of/Change in Course Fee",
+    			],
+    			"revisedFacultyCredentials": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"courseListChange": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"effective": {
+    				"semester": "Fall",
+    				"year": "2016"
+    			},
+    			"courseFeeChange": null,
+    			"affectedDepartmentsPrograms": "Computer Science and Information Systems",
+    			"approvedBy": "Renee Vandiver",
+    			"description": "Change course fee for CS455 to $3000 so nobody can graduate. hehe",
+    			"comment": "WTF??"
+    		}
+      ]
+    }
+
 ### Create change request (also available to primary admin)
+
+**Request**
+
+POST `/admin/changeRequests/userRequests`
+
+    {
+    	"requestTypes": [
+    		"Addition of/Change in Course Fee",
+    	],
+    	"revisedFacultyCredentials": {
+    		"needed": false,
+    		"content": null
+    	},
+    	"courseListChange": {
+    		"needed": false,
+    		"content": null
+    	},
+    	"effective": {
+    		"semester": "Fall",
+    		"year": "2016"
+    	},
+    	"courseFeeChange": null,
+    	"affectedDepartmentsPrograms": "Computer Science and Information Systems",
+    	"approvedBy": "Renee Vandiver",
+    	"description": "Change course fee for CS455 to $3000 so nobody can graduate. hehe"
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### Edit change request (that hasn't been approved/denied)
 
+**Request**
+
+PUT `/admin/changeRequests/userRequests/:id`
+
+    {
+    	"effective": {
+    		"semester": "Spring",
+    		"year": "2017"
+    	}
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Remove change request (that hasn't been approved/denied)
 
+**Request**
+
+DELETE `/admin/changeRequests/userRequests/:id`
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### View change log (also available to primary admin)
+
+**Request**
+
+GET `/admin/changeRequests/log`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+    		{
+    		  "_id": "571052e8ad4a865d3a18d454",
+    			"author": "sean_connery",
+    		 	"timeOfRequest": 1460687978978,
+    			"timeOfApproval": 1460687997358,
+    			"status": "approved",
+    			"requestTypes": [
+    				"Change in Course Description",
+    			],
+    			"revisedFacultyCredentials": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"courseListChange": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"effective": {
+    				"semester": "Fall",
+    				"year": "2016"
+    			},
+    			"courseFeeChange": null,
+    			"affectedDepartmentsPrograms": "Computer Science and Information Systems",
+    			"approvedBy": "Renee Vandiver",
+    			"description": "Change course description for CS310 to 'learning how to write assembly for a computer nobody uses any more'",
+    			comment: "Works for me"
+    		},
+    		{
+    		  "_id": "571052e8ad4a865d3a18d458",
+    			"author": "sean_connery",
+    		 	"timeOfRequest": 1460687997358,
+    			"timeOfApproval": 1460688026114,
+    			"status": "approved",
+    			"requestTypes": [
+    				"Addition of/Change in Course Fee",
+    			],
+    			"revisedFacultyCredentials": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"courseListChange": {
+    				"needed": false,
+    				"content": null
+    			},
+    			"effective": {
+    				"semester": "Fall",
+    				"year": "2016"
+    			},
+    			"courseFeeChange": null,
+    			"affectedDepartmentsPrograms": "Computer Science and Information Systems",
+    			"approvedBy": "Renee Vandiver",
+    			"description": "Change course fee for CS455 to $3000 so nobody can graduate. hehe",
+    			comment: "I like the way you think"
+    		}
+      ]
+    }
