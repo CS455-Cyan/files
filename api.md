@@ -490,32 +490,50 @@ DELETE `/admin/catalog/textSections/:id`
     {
       "success": true
     }
+    
+### Add general requirement
+
+**Request**
+
+POST `/admin/catalog/generalRequirements/:area`
+
+    {
+      "name": "other requirements",
+      "items": [
+        {
+          "separator": "AND",
+          "courses": []
+        }
+      ]
+    }
+
+**Response**
+
+    {
+      "success": true
+    }
 
 ### Update general requirement
 
 **Request**
 
-PUT `/admin/catalog/generalRequirements/:area`
+PUT `/admin/catalog/generalRequirements/:area/:requirementId`
 
     {
-      "name": "Written Composition",
-      "requirements": [
-        {
-          "name": "requirement",
-          "_id": "570f27cab1dd956211defcf0",
-          "items": [
-            {
-              "separator": "AND",
-              "write_in": "optional",
-              "_id": "570f27cab1dd956211defcf1",
-              "courses": [
-                "570efc799c1394fc21eb9f6b"
-              ]
-            }
-          ]
-        }
-      ]
+      "name": "Updated requirements"
     }
+
+**Response**
+
+    {
+      "success": true
+    }
+    
+### Remove general requirement
+
+**Request**
+
+DELETE `/admin/catalog/generalRequirements/:area/:requirementId`
 
 **Response**
 
