@@ -246,7 +246,7 @@ GET `/catalog/programs`
 
 **Request**
 
-GET `/catalog/search/programs`
+POST `/catalog/search/programs`
 
     {
       "term": "computer"
@@ -339,7 +339,7 @@ GET `/catalog/courses`
 
 **Request**
 
-GET `/catalog/search/courses`
+POST `/catalog/search/courses`
 
     {
       "term": "programming"
