@@ -47,6 +47,8 @@ GET `/catalog/textSections/:id`
 
 ### List general requirements
 
+*Note: The areas may not be in order! Don't assume that they will.*
+
 **Request**
 
 GET `/catalog/generalRequirements`
@@ -57,98 +59,120 @@ GET `/catalog/generalRequirements`
       "success": true,
       "data": [
         {
-          "_id": "570ef51ced1ca29a1e60f799",
+          "_id": "57132505d42d9221654fe906",
+          "area": "II",
+          "name": "Humanities and Fine Arts",
           "__v": 0,
-          "areaV": [
+          "requirements": [
             {
-              "name": "Additional Requirements",
-              "_id": "570ef51ced1ca29a1e60f79a",
-              "requirements": [
+              "name": "requirement",
+              "_id": "57132505d42d9221654fe907",
+              "items": [
                 {
-                  "name": "requirement",
-                  "_id": "570ef51ced1ca29a1e60f79b",
-                  "items": [
-                    {
-                      "separator": "false",
-                      "_id": "570ef51ced1ca29a1e60f79c",
-                      "courses": []
-                    }
-                  ]
+                  "separator": "OR",
+                  "_id": "57132505d42d9221654fe908",
+                  "courses": []
                 }
               ]
             }
-          ],
-          "areaIV": [
+          ]
+        },
+        {
+          "_id": "57132505d42d9221654fe912",
+          "area": "III",
+          "name": "Natural Sciences and Mathematics",
+          "__v": 0,
+          "requirements": [
             {
-              "name": "History, Social and Behavioral Sciences",
-              "_id": "570ef51ced1ca29a1e60f79d",
-              "requirements": [
+              "name": "requirement",
+              "_id": "57132505d42d9221654fe913",
+              "items": [
                 {
-                  "name": "requirement",
-                  "_id": "570ef51ced1ca29a1e60f79e",
-                  "items": [
-                    {
-                      "separator": "false",
-                      "_id": "570ef51ced1ca29a1e60f79f",
-                      "courses": []
-                    }
-                  ]
+                  "separator": "OR",
+                  "_id": "57132505d42d9221654fe914",
+                  "courses": []
                 }
               ]
             }
-          ],
-          "areaIII": [
+          ]
+        },
+        {
+          "_id": "57132505d42d9221654fe915",
+          "area": "IV",
+          "name": "History, Social and Behavioral Sciences",
+          "__v": 0,
+          "requirements": [
             {
-              "name": "Natural Sciences and Mathematics",
-              "_id": "570ef51ced1ca29a1e60f7a0",
-              "requirements": [
+              "name": "requirement",
+              "_id": "57132505d42d9221654fe916",
+              "items": [
                 {
-                  "name": "requirement",
-                  "_id": "570ef51ced1ca29a1e60f7a1",
-                  "items": [
-                    {
-                      "separator": "false",
-                      "_id": "570ef51ced1ca29a1e60f7a2",
-                      "courses": []
-                    }
-                  ]
+                  "separator": "OR",
+                  "_id": "57132505d42d9221654fe917",
+                  "courses": []
                 }
               ]
             }
-          ],
-          "areaII": [
+          ]
+        },
+        {
+          "_id": "57132506d42d9221654fe918",
+          "area": "V",
+          "name": "Additional Requirements",
+          "__v": 0,
+          "requirements": [
             {
-              "name": "Humanities and Fine Arts",
-              "_id": "570ef51ced1ca29a1e60f7a3",
-              "requirements": [
+              "name": "requirement",
+              "_id": "57132506d42d9221654fe919",
+              "items": [
                 {
-                  "name": "requirement",
-                  "_id": "570ef51ced1ca29a1e60f7a4",
-                  "items": [
-                    {
-                      "separator": "false",
-                      "_id": "570ef51ced1ca29a1e60f7a5",
-                      "courses": []
-                    }
-                  ]
+                  "separator": "OR",
+                  "_id": "57132506d42d9221654fe91a",
+                  "courses": []
                 }
               ]
             }
-          ],
-          "areaI": [
+          ]
+        },
+        {
+          "_id": "57132502d42d9221654fe8fc",
+          "area": "I",
+          "name": "Written Composition",
+          "__v": 4,
+          "requirements": [
             {
-              "name": "Written Composition",
-              "_id": "570ef51ced1ca29a1e60f7a6",
-              "requirements": [
+              "name": "requirement",
+              "_id": "57132502d42d9221654fe8fd",
+              "items": [
                 {
-                  "name": "requirement",
-                  "_id": "570ef51ced1ca29a1e60f7a7",
-                  "items": [
+                  "separator": "AND",
+                  "write_in": "optional",
+                  "_id": "57132502d42d9221654fe8fe",
+                  "courses": []
+                }
+              ]
+            },
+            {
+              "name": "other requirements",
+              "_id": "571330f91c7afbdb679c6171",
+              "items": [
+                {
+                  "separator": "AND",
+                  "_id": "571330f91c7afbdb679c6172",
+                  "courses": [
                     {
-                      "separator": "true",
-                      "write_in": "optional",
-                      "_id": "570ef51ced1ca29a1e60f7a8",
-                      "courses": []
+                      "_id": "57132502d42d9221654fe904",
+                      "title": "Artificial Intelligence",
+                      "number": "470",
+                      "description": "Robots and stuff...",
+                      "subject": {
+                        "_id": "57132502d42d9221654fe900",
+                        "name": "Computer Science",
+                        "abbreviation": "CS",
+                        "__v": 0
+                      },
+                      "__v": 0,
+                      "offerings": []
                     }
                   ]
                 }
@@ -159,11 +183,11 @@ GET `/catalog/generalRequirements`
       ]
     }
 
-### View categories, departments, and programs
+### List program categories
 
 **Request**
 
-GET `/catalog/programs`
+GET `/catalog/programCategories`
 
 **Response**
 
@@ -171,71 +195,109 @@ GET `/catalog/programs`
       "success": true,
       "data": [
         {
-          "_id": "570efd8672a74f2e22e8e59d",
-          "categories": [
+          "_id": "57132505d42d9221654fe911",
+          "name": "College of Arts and Sciences"
+        },
+        {
+          "_id": "57132505d42d9221654fe909",
+          "name": "College of Business"
+        }
+      ]
+    }
+
+### View category/department/program details
+
+**Request**
+
+GET `/catalog/programCategories/:id`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+        {
+          "_id": "57132505d42d9221654fe909",
+          "name": "College of Business",
+          "description": "Hr Hm Business Hum",
+          "__v": 6,
+          "programs": [
             {
-              "name": "College of Business",
-              "description": "Hr Hm Business Hum",
-              "_id": "570efd8672a74f2e22e8e59f",
+              "type": "type",
+              "name": "name",
+              "description": "description",
+              "_id": "57132505d42d9221654fe90a",
+              "requirements": []
+            }
+          ],
+          "departments": [
+            {
+              "name": "Computer Science and Information Systems",
+              "description": "CS and CIS are not the same thing",
+              "_id": "57132505d42d9221654fe90b",
               "programs": [
                 {
-                  "type": "type",
-                  "name": "name",
-                  "description": "description",
-                  "_id": "570efd8672a74f2e22e8e5a0",
-                  "requirements": []
-                }
-              ],
-              "departments": [
-                {
-                  "name": "Computer Science and Information Systems",
-                  "description": "CS and CIS are not the same thing",
-                  "_id": "570efd8672a74f2e22e8e5a1",
-                  "programs": [
+                  "type": "major",
+                  "name": "Computer Science",
+                  "description": "not for the faint of heart",
+                  "_id": "57132505d42d9221654fe90d",
+                  "requirements": [
                     {
-                      "type": "major",
-                      "name": "Computer Science",
-                      "description": "not for the faint of heart",
-                      "_id": "570efd8672a74f2e22e8e5a3",
-                      "requirements": [
+                      "name": "Core Requirements",
+                      "_id": "57132505d42d9221654fe90e",
+                      "items": [
                         {
-                          "name": "Core Requirements",
-                          "_id": "570efd8672a74f2e22e8e5a4",
-                          "items": [
+                          "separator": "AND",
+                          "_id": "57132505d42d9221654fe910",
+                          "courses": [
                             {
-                              "separator": "AND",
-                              "_id": "570efd8672a74f2e22e8e5a6",
-                              "courses": [
-                                "570efc799c1394fc21eb9f6b"
-                              ]
-                            },
+                              "_id": "57132502d42d9221654fe904",
+                              "title": "Artificial Intelligence",
+                              "number": "470",
+                              "description": "Robots and stuff...",
+                              "subject": {
+                                "_id": "57132502d42d9221654fe900",
+                                "name": "Computer Science",
+                                "abbreviation": "CS",
+                                "__v": 0
+                              },
+                              "__v": 0,
+                              "offerings": []
+                            }
+                          ]
+                        },
+                        {
+                          "separator": "AND",
+                          "_id": "57132505d42d9221654fe90f",
+                          "courses": [
                             {
-                              "separator": "AND",
-                              "_id": "570efd8672a74f2e22e8e5a5",
-                              "courses": [
-                                "570efc799c1394fc21eb9f6a"
-                              ]
+                              "_id": "57132502d42d9221654fe905",
+                              "title": "Artificial Intelligence",
+                              "number": "470",
+                              "description": "Robots and stuff...",
+                              "subject": {
+                                "_id": "57132502d42d9221654fe900",
+                                "name": "Computer Science",
+                                "abbreviation": "CS",
+                                "__v": 0
+                              },
+                              "__v": 0,
+                              "offerings": []
                             }
                           ]
                         }
                       ]
-                    },
-                    {
-                      "type": "minor",
-                      "name": "Human-Computer Interaction/User Experience",
-                      "description": "emotional impact cannot be designed - only experienced",
-                      "_id": "570efd8672a74f2e22e8e5a2",
-                      "requirements": []
                     }
                   ]
+                },
+                {
+                  "type": "minor",
+                  "name": "Human-Computer Interaction/User Experience",
+                  "description": "emotional impact cannot be designed - only experienced",
+                  "_id": "57132505d42d9221654fe90c",
+                  "requirements": []
                 }
               ]
-            },
-            {
-              "name": "College of Arts and Sciences",
-              "_id": "570efd8672a74f2e22e8e59e",
-              "programs": [],
-              "departments": []
             }
           ]
         }
@@ -307,30 +369,32 @@ GET `/catalog/courses`
       "success": true,
       "data": [
         {
-          "_id": "570efd8672a74f2e22e8e5a8",
-          "subjects": [
-            {
-              "name": "Computer Science",
-              "abbreviation": "CS",
-              "_id": "570efd8672a74f2e22e8e5a9",
-              "courses": [
-                {
-                  "title": "Artificial Intelligence",
-                  "number": "470",
-                  "description": "Robots and stuff...",
-                  "_id": "570efd8672a74f2e22e8e5ab",
-                  "offerings": []
-                },
-                {
-                  "title": "Programming Languages",
-                  "number": "410W",
-                  "description": "Fortran...",
-                  "_id": "570efd8672a74f2e22e8e5aa",
-                  "offerings": []
-                }
-              ]
-            }
-          ]
+          "_id": "57132502d42d9221654fe904",
+          "title": "Artificial Intelligence",
+          "number": "470",
+          "description": "Robots and stuff...",
+          "subject": {
+            "_id": "57132502d42d9221654fe900",
+            "name": "Computer Science",
+            "abbreviation": "CS",
+            "__v": 0
+          },
+          "__v": 0,
+          "offerings": []
+        },
+        {
+          "_id": "57132502d42d9221654fe905",
+          "title": "Artificial Intelligence",
+          "number": "470",
+          "description": "Robots and stuff...",
+          "subject": {
+            "_id": "57132502d42d9221654fe900",
+            "name": "Computer Science",
+            "abbreviation": "CS",
+            "__v": 0
+          },
+          "__v": 0,
+          "offerings": []
         }
       ]
     }
