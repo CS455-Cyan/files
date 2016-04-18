@@ -357,7 +357,65 @@ POST `/catalog/search/programs`
       ]
     }
 
-### View courses
+### View program in category
+
+**Request**
+
+GET `/catalog/programs/:categoryId/:programId`
+
+**Response**
+
+    {
+      "success": true,
+      "data": {
+        {
+          "program": {
+            "_id": "12345",
+            "type": "major",
+            "name": "Computer Science"
+            "description": "program description",
+            "requirements": []
+          },
+          "category": {
+            "_id": "67890",
+            "name": "College of Business"
+          }
+        }
+      }
+    }
+    
+### View program in department
+
+**Request**
+
+GET `/catalog/programs/:categoryId/:departmentId/:programId`
+
+**Response**
+
+    {
+      "success": true,
+      "data": {
+        {
+          "program": {
+            "_id": "12345",
+            "type": "major",
+            "name": "Computer Science"
+            "description": "program description",
+            "requirements": []
+          },
+          "category": {
+            "_id": "67890",
+            "name": "College of Business"
+          },
+          "department": {
+            "_id": "34567",
+            "name": "Computer Science and Information Systems"
+          }
+        }
+      }
+    }
+
+### List courses
 
 **Request**
 
@@ -398,6 +456,32 @@ GET `/catalog/courses`
         }
       ]
     }
+    
+### View course
+
+**Request**
+
+GET `/catalog/courses/:id`
+
+**Response**
+
+    {
+      "success": true,
+      "data": {
+        "_id": "57132502d42d9221654fe904",
+        "title": "Artificial Intelligence",
+        "number": "470",
+        "description": "Robots and stuff...",
+        "subject": {
+          "_id": "57132502d42d9221654fe900",
+          "name": "Computer Science",
+          "abbreviation": "CS",
+          "__v": 0
+        },
+        "__v": 0,
+        "offerings": []
+      }
+    }
 
 ### Search courses
 
@@ -429,6 +513,73 @@ POST `/catalog/search/courses`
           "offerings": ["Fall", "Spring"]
         }
       ]
+    }
+    
+### List subjects
+
+**Request**
+
+GET `/catalog/subjects`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+        {
+          "_id": "57132502d42d9221654fe900",
+          "name": "Computer Science",
+          "abbreviation": "CS"
+        },
+        {
+          "_id": "57132502d42d9221654fe901",
+          "name": "Psychology",
+          "abbreviation": "PY"
+        }
+      ]
+    }
+    
+### View subject and list courses for subject
+
+**Request**
+
+GET `/catalog/subjects/:id`
+
+**Response**
+
+    {
+      "success": true,
+      "data": {
+        subject: {
+          "_id": "57132502d42d9221654fe900",
+          "name": "Computer Science",
+          "abbreviation": "CS"
+        },
+        "courses": [
+          {
+            "_id": "57132502d42d9221654fe904",
+            "title": "Artificial Intelligence",
+            "number": "470",
+            "description": "Robots and stuff...",
+            "offerings": [],
+            "hours": {
+              "min": 3,
+              "max": 3
+            }
+          },
+          {
+            "_id": "57132502d42d9221654fe905",
+            "title": "Artificial Intelligence",
+            "number": "470",
+            "description": "Robots and stuff...",
+            "offerings": [],
+            "hours": {
+              "min": 3,
+              "max": 3
+            }
+          }
+        ]
+      }
     }
 
 ### View faculty and staff section
