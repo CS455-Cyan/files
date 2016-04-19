@@ -47,14 +47,58 @@ GET `/catalog/textSections/:id`
 
 ### List general requirements
 
-*Note: The areas may not be in order! Don't assume that they will.*
-
 **Request**
 
 GET `/catalog/generalRequirements`
 
 **Response**
 
+        {
+          "_id": "57132502d42d9221654fe8fc",
+          "area": "I",
+          "name": "Written Composition",
+          "__v": 4,
+          "requirements": [
+            {
+              "name": "requirement",
+              "_id": "57132502d42d9221654fe8fd",
+              "items": [
+                {
+                  "separator": "AND",
+                  "write_in": "optional",
+                  "_id": "57132502d42d9221654fe8fe",
+                  "courses": []
+                }
+              ]
+            },
+            {
+              "name": "other requirements",
+              "_id": "571330f91c7afbdb679c6171",
+              "items": [
+                {
+                  "separator": "AND",
+                  "_id": "571330f91c7afbdb679c6172",
+                  "courses": [
+                    {
+                      "_id": "57132502d42d9221654fe904",
+                      "title": "Artificial Intelligence",
+                      "number": "470",
+                      "description": "Robots and stuff...",
+                      "subject": {
+                        "_id": "57132502d42d9221654fe900",
+                        "name": "Computer Science",
+                        "abbreviation": "CS",
+                        "__v": 0
+                      },
+                      "__v": 0,
+                      "offerings": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
     {
       "success": true,
       "data": [
@@ -129,52 +173,6 @@ GET `/catalog/generalRequirements`
                   "separator": "OR",
                   "_id": "57132506d42d9221654fe91a",
                   "courses": []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "_id": "57132502d42d9221654fe8fc",
-          "area": "I",
-          "name": "Written Composition",
-          "__v": 4,
-          "requirements": [
-            {
-              "name": "requirement",
-              "_id": "57132502d42d9221654fe8fd",
-              "items": [
-                {
-                  "separator": "AND",
-                  "write_in": "optional",
-                  "_id": "57132502d42d9221654fe8fe",
-                  "courses": []
-                }
-              ]
-            },
-            {
-              "name": "other requirements",
-              "_id": "571330f91c7afbdb679c6171",
-              "items": [
-                {
-                  "separator": "AND",
-                  "_id": "571330f91c7afbdb679c6172",
-                  "courses": [
-                    {
-                      "_id": "57132502d42d9221654fe904",
-                      "title": "Artificial Intelligence",
-                      "number": "470",
-                      "description": "Robots and stuff...",
-                      "subject": {
-                        "_id": "57132502d42d9221654fe900",
-                        "name": "Computer Science",
-                        "abbreviation": "CS",
-                        "__v": 0
-                      },
-                      "__v": 0,
-                      "offerings": []
-                    }
-                  ]
                 }
               ]
             }
