@@ -53,6 +53,9 @@ GET `/catalog/generalRequirements`
 
 **Response**
 
+    {
+      "success": true,
+      "data": [
         {
           "_id": "57132502d42d9221654fe8fc",
           "area": "I",
@@ -99,9 +102,6 @@ GET `/catalog/generalRequirements`
             }
           ]
         },
-    {
-      "success": true,
-      "data": [
         {
           "_id": "57132505d42d9221654fe906",
           "area": "II",
@@ -185,7 +185,7 @@ GET `/catalog/generalRequirements`
 
 **Request**
 
-GET `/catalog/programCategories`
+GET `/catalog/programs/categories`
 
 **Response**
 
@@ -207,7 +207,7 @@ GET `/catalog/programCategories`
 
 **Request**
 
-GET `/catalog/programCategories/:id`
+GET `/catalog/programs/categories/:id`
 
 **Response**
 
@@ -302,6 +302,66 @@ GET `/catalog/programCategories/:id`
       ]
     }
     
+### View department (returns department and category)
+
+**Request**
+
+GET `/catalog/programs/categories/:categoryId/departments/:departmentId`
+
+**Response**
+
+    {
+      "success": true,
+      "data": {
+        "department": {
+          "name": "Computer Science and Information Systems",
+          "description": "CS and CIS are not the same thing",
+          "_id": "5714799c0d1ca57305e7ede0",
+          "programs": [
+            {
+              "type": "minor",
+              "name": "Economics",
+              "description": "money money money",
+              "_id": "5714799c0d1ca57305e7ede6",
+              "requirements": []
+            },
+            {
+              "type": "major",
+              "name": "Computer Science",
+              "description": "not for the faint of heart",
+              "_id": "5714799c0d1ca57305e7ede2",
+              "requirements": [
+                {
+                  "name": "Core Requirements",
+                  "_id": "5714799c0d1ca57305e7ede3",
+                  "items": [
+                    {
+                      "separator": "AND",
+                      "_id": "5714799c0d1ca57305e7ede5",
+                      "courses": [
+                        "5714799b0d1ca57305e7edd9"
+                      ]
+                    },
+                    {
+                      "separator": "AND",
+                      "_id": "5714799c0d1ca57305e7ede4",
+                      "courses": [
+                        "5714799b0d1ca57305e7edda"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "category": {
+          "_id": "5714799c0d1ca57305e7edde",
+          "name": "College of Business"
+        }
+      }
+    }
+    
 ### Search programs
 
 **Request**
@@ -359,7 +419,7 @@ POST `/catalog/search/programs`
 
 **Request**
 
-GET `/catalog/programs/:categoryId/:programId`
+GET `/catalog/programs/categories/:categoryId/programs/:programId`
 
 **Response**
 
@@ -386,7 +446,7 @@ GET `/catalog/programs/:categoryId/:programId`
 
 **Request**
 
-GET `/catalog/programs/:categoryId/:departmentId/:programId`
+GET `/catalog/programs/categories/:categoryId/departments/:departmentId/programs/:programId`
 
 **Response**
 
@@ -758,7 +818,7 @@ DELETE `/admin/catalog/generalRequirements/:area/:requirementId`
 
 **Request**
 
-POST `/admin/catalog/programCategories`
+POST `/admin/catalog/programs/categories`
 
     {
       "name": "College of Nursing",
@@ -775,7 +835,7 @@ POST `/admin/catalog/programCategories`
 
 **Request**
 
-PUT `/admin/catalog/programCategories/:id`
+PUT `/admin/catalog/programs/categories/:id`
 
     {
       "name": "College of Nursing",
@@ -792,7 +852,7 @@ PUT `/admin/catalog/programCategories/:id`
 
 **Request**
 
-DELETE `/admin/catalog/programCategories/:id`
+DELETE `/admin/catalog/programs/categories/:id`
 
 **Response**
 
@@ -804,7 +864,7 @@ DELETE `/admin/catalog/programCategories/:id`
 
 **Request**
 
-POST `/admin/catalog/departments/:categoryId`
+POST `/admin/catalog/programs/categories/:categoryId/departments`
 
     {
       "name": "History and Political Science",
@@ -822,7 +882,7 @@ POST `/admin/catalog/departments/:categoryId`
 
 **Request**
 
-PUT `/admin/catalog/departments/:categoryId/:departmentId`
+PUT `/admin/catalog/programs/categories/:categoryId/departments/:departmentId`
 
     {
       "name": "History and Political Science",
@@ -840,7 +900,7 @@ PUT `/admin/catalog/departments/:categoryId/:departmentId`
 
 **Request**
 
-DELETE `/admin/catalog/departments/:categoryId/:departmentId`
+DELETE `/admin/catalog/programs/categories/:categoryId/departments/:departmentId`
 
 **Response**
 
@@ -852,7 +912,7 @@ DELETE `/admin/catalog/departments/:categoryId/:departmentId`
 
 **Request**
 
-POST `/admin/catalog/programs/:categoryId`
+POST `/admin/catalog/programs/categories/:categoryId/programs`
 
     {
       "name": "Political Science",
@@ -871,7 +931,7 @@ POST `/admin/catalog/programs/:categoryId`
 
 **Request**
 
-POST `/admin/catalog/programs/:categoryId/:departmentId`
+POST `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/programs`
 
     {
       "name": "Computer Information Systems",
@@ -890,7 +950,7 @@ POST `/admin/catalog/programs/:categoryId/:departmentId`
 
 **Request**
 
-PUT `/admin/catalog/programs/:categoryId/:programId`
+PUT `/admin/catalog/programs/categoies/:categoryId/programs/:programId`
 
     {
       "name": "Secondary Education",
@@ -908,7 +968,7 @@ PUT `/admin/catalog/programs/:categoryId/:programId`
 
 **Request**
 
-PUT `/admin/catalog/programs/:categoryId/:departmentId/:programId`
+PUT `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/programs/:programId`
 
     {
       "name": "Secondary Education",
@@ -926,7 +986,7 @@ PUT `/admin/catalog/programs/:categoryId/:departmentId/:programId`
 
 **Request**
 
-DELETE `/admin/catalog/programs/:categoryId/:programId`
+DELETE `/admin/catalog/programs/categoies/:categoryId/programs/:programI`
 
 **Response**
 
@@ -938,7 +998,7 @@ DELETE `/admin/catalog/programs/:categoryId/:programId`
 
 **Request**
 
-DELETE `/admin/catalog/programs/:categoryId/:departmentId/:programId`
+DELETE `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/programs/:programId`
 
 **Response**
 
@@ -996,7 +1056,7 @@ DELETE `/admin/catalog/subjects/:id`
 
 **Request**
 
-POST `/admin/catalog/courses/:subjectId`
+POST `/admin/catalog/courses`
 
     {
       "title": "Cognitive Psychology",
@@ -1015,7 +1075,7 @@ POST `/admin/catalog/courses/:subjectId`
 
 **Request**
 
-POST `/admin/catalog/courses/:subjectId/:courseId`
+POST `/admin/catalog/courses/:courseId`
 
     {
       "offerings": ["Fall", "Spring"]
@@ -1031,7 +1091,7 @@ POST `/admin/catalog/courses/:subjectId/:courseId`
 
 **Request**
 
-DELETE `/admin/catalog/courses/:subjectId/:courseId`
+DELETE `/admin/catalog/courses/:courseId`
 
 **Response**
 
