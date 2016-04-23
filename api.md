@@ -65,10 +65,17 @@ GET `/catalog/generalRequirements`
             {
               "name": "requirement",
               "_id": "57132502d42d9221654fe8fd",
+              "separator": "OR",
               "items": [
                 {
                   "separator": "AND",
-                  "write_in": "optional",
+                  "writeIn": {
+                    "content": "hello world",
+                    "hours": {
+                      "min": 3,
+                      "max": 3
+                    }
+                  },
                   "_id": "57132502d42d9221654fe8fe",
                   "courses": []
                 }
@@ -77,6 +84,7 @@ GET `/catalog/generalRequirements`
             {
               "name": "other requirements",
               "_id": "571330f91c7afbdb679c6171",
+              "separator": "AND",
               "items": [
                 {
                   "separator": "AND",
@@ -111,6 +119,7 @@ GET `/catalog/generalRequirements`
             {
               "name": "requirement",
               "_id": "57132505d42d9221654fe907",
+              "separator": "AND"
               "items": [
                 {
                   "separator": "OR",
@@ -130,6 +139,7 @@ GET `/catalog/generalRequirements`
             {
               "name": "requirement",
               "_id": "57132505d42d9221654fe913",
+              "separator": "AND",
               "items": [
                 {
                   "separator": "OR",
@@ -149,6 +159,7 @@ GET `/catalog/generalRequirements`
             {
               "name": "requirement",
               "_id": "57132505d42d9221654fe916",
+              "separator": "AND"
               "items": [
                 {
                   "separator": "OR",
@@ -168,6 +179,7 @@ GET `/catalog/generalRequirements`
             {
               "name": "requirement",
               "_id": "57132506d42d9221654fe919",
+              "separator": "AND",
               "items": [
                 {
                   "separator": "OR",
@@ -764,6 +776,28 @@ DELETE `/admin/catalog/textSections/:id`
       "success": true
     }
     
+### Reorder text sections
+
+This should just be a list of id's of textSections. On the backend textSections will be rearranged in this specified order.
+
+**Request**
+
+POST `/admin/catalog/textSectionsOrder`
+
+    [
+      "idOfTextSection1",
+      "idOfTextSection2",
+      "idOfTextSection3",
+      "idOfTextSection4",
+      "idOfTextSection5"
+    ]
+    
+**Response**
+
+    {
+      "success": true
+    }
+    
 ### Add general requirement
 
 **Request**
@@ -772,6 +806,7 @@ POST `/admin/catalog/generalRequirements/:area`
 
     {
       "name": "other requirements",
+      "separator": "OR",
       "items": [
         {
           "separator": "AND",
