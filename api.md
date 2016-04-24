@@ -69,6 +69,7 @@ GET `/catalog/generalRequirements`
               "items": [
                 {
                   "separator": "AND",
+                  "isWriteIn": true,
                   "writeIn": {
                     "content": "hello world",
                     "hours": {
@@ -89,6 +90,7 @@ GET `/catalog/generalRequirements`
                 {
                   "separator": "AND",
                   "_id": "571330f91c7afbdb679c6172",
+                  "isWriteIn": false,
                   "courses": [
                     {
                       "_id": "57132502d42d9221654fe904",
@@ -119,11 +121,12 @@ GET `/catalog/generalRequirements`
             {
               "name": "requirement",
               "_id": "57132505d42d9221654fe907",
-              "separator": "AND"
+              "separator": "AND",
               "items": [
                 {
                   "separator": "OR",
                   "_id": "57132505d42d9221654fe908",
+                  "isWriteIn": false,
                   "courses": []
                 }
               ]
@@ -144,6 +147,7 @@ GET `/catalog/generalRequirements`
                 {
                   "separator": "OR",
                   "_id": "57132505d42d9221654fe914",
+                  "isWriteIn": false,
                   "courses": []
                 }
               ]
@@ -159,11 +163,12 @@ GET `/catalog/generalRequirements`
             {
               "name": "requirement",
               "_id": "57132505d42d9221654fe916",
-              "separator": "AND"
+              "separator": "AND",
               "items": [
                 {
                   "separator": "OR",
                   "_id": "57132505d42d9221654fe917",
+                  "isWriteIn": false,
                   "courses": []
                 }
               ]
@@ -184,6 +189,7 @@ GET `/catalog/generalRequirements`
                 {
                   "separator": "OR",
                   "_id": "57132506d42d9221654fe91a",
+                  "isWriteIn": false,
                   "courses": []
                 }
               ]
@@ -259,6 +265,7 @@ GET `/catalog/programs/categories/:id`
                         {
                           "separator": "AND",
                           "_id": "57132505d42d9221654fe910",
+                          "isWriteIn": false,
                           "courses": [
                             {
                               "_id": "57132502d42d9221654fe904",
@@ -350,6 +357,7 @@ GET `/catalog/programs/categories/:categoryId/departments/:departmentId`
                     {
                       "separator": "AND",
                       "_id": "5714799c0d1ca57305e7ede5",
+                      "isWriteIn": false,
                       "courses": [
                         "5714799b0d1ca57305e7edd9"
                       ]
@@ -402,6 +410,7 @@ POST `/catalog/search/programs`
                 {
                   "separator": "AND",
                   "_id": "570efd8672a74f2e22e8e5a6",
+                  "isWriteIn": false,
                   "courses": [
                     "570efc799c1394fc21eb9f6b"
                   ]
@@ -810,6 +819,7 @@ POST `/admin/catalog/generalRequirements/:area`
       "items": [
         {
           "separator": "AND",
+          "isWriteIn": false,
           "courses": []
         }
       ]
