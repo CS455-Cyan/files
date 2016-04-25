@@ -791,7 +791,7 @@ This should just be a list of id's of textSections. On the backend textSections 
 
 **Request**
 
-POST `/admin/catalog/textSectionsOrder`
+PUT `/admin/catalog/textSectionsOrder`
 
     [
       "idOfTextSection1",
