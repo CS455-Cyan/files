@@ -794,11 +794,11 @@ This should just be a list of id's of textSections. On the backend textSections 
 PUT `/admin/catalog/textSectionsOrder`
 
     [
-      "idOfTextSection1",
-      "idOfTextSection2",
-      "idOfTextSection3",
-      "idOfTextSection4",
-      "idOfTextSection5"
+      {"_id": "idOfTextSection1"},
+      {"_id": "idOfTextSection2"},
+      {"_id": "idOfTextSection3"},
+      {"_id": "idOfTextSection4"},
+      {"_id": "idOfTextSection5"}
     ]
     
 **Response**
