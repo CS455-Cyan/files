@@ -31,11 +31,40 @@
 - [Add general requirement](#add-general-requirement)
 - [Update general requirement](#update-general-requirement)
 - [Remove general requirement](#remove-general-requirement)
-- []()
-- []()
-- []()
-- []()
-- []()
+- [Add program category](#add-program-category)
+- [Update program category](#update-program-category)
+- [Remove program category](#remove-program-category)
+- [Add department](#add-department)
+- [Update departmet](#update-department)
+- [Remove department](#remove-department)
+- [Add program to category](#add-program-to-category)
+- [Add program to department](#add-program-to-department)
+- [Update program in category](#update-program-in-category)
+- [Update program in department](#update-program-in-department)
+- [Remove program from category](#remove-program-from-category)
+- [Remove program from department](#remove-program-from-department)
+- [Add course subject](#add-course-subject)
+- [Update course subject](#update-course-subject)
+- [Remove course subject](#remove-course-subject)]
+- [Add course](#add-course)
+- [Update course](#update-course)
+- [Remove course](#remove-course)
+- [Upate faculty and staff section](#update-faculty-and-staff-section)
+- [Publish catalog](#publish-catalog)
+- [Preview catalog](#preview-catalog)
+- [View change request queue](#view-change-request-queue)
+- [Approve change request](#approve-change-request)
+- [Deny change request](#deny-change-request)
+- [View all admins](#view-all-admins)
+    - both primary and secondary
+- [Add secondary admin](#add-secondary-admin)
+- [Update admin](#update-admin)
+    - Change password
+- [Remove secondary admin](#remove-secondary-admin)
+- ...
+- [View change requests](#view-change-requests)
+    - (created by that admin)
+
 
 # Detail
 
