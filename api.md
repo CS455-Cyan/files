@@ -2,8 +2,9 @@
 
 * PUT requests of course specify updating a record. The way they will work in our application is that they will change the *specified fields*, but fields not specified will remain as they were. In other words, it is an change rather than a replacement of the record. So say we sent the following JSON with a PUT request: `{"name": "new name"}`. This would result in a name change only; all the other fields of that record would remain as they were.
 
-# Summary
+# Requests Overview
 
+## Public
 - [List custom text sections](#list-custom-text-sections)
 - [View custom text section](#view-custom-text-section)
 - [List general requirements](#list-general-requirements)
@@ -20,7 +21,8 @@
 - [List subjects](#list-subjects)
 - [View subject and list courses for subject](#view-subject-and-list-courses-for-subject)
 - [View faculty and staff section](#view-faculty-and-staff-section)
-- [Primary admin actions](#primary-admin-actions)
+
+## Primary Admin
 - [Change password](#change-password)
 - [Add text section](#add-text-section)
 - [Update all text sections](#update-all-text-sections)
@@ -61,12 +63,21 @@
 - [Update admin](#update-admin)
     - Change password
 - [Remove secondary admin](#remove-secondary-admin)
-- ...
+
+##Secondary Admin
 - [View change requests](#view-change-requests)
     - (created by that admin)
+- [Create change request](#create-change-request)
+    -  also available to primary admin
+- [Edit change request](#edit-change-request)
+    - that hasn't been approved/denied
+- [Remove change request](#remove-change-request)
+    - that hasn't been approved/denied
+- [View change log](#view-change-log)
+    - also available to primary admin
 
 
-# Detail
+# Request Details
 
 ## Public User Actions
 
@@ -385,7 +396,7 @@ GET `/catalog/programs/categories/:id`
       ]
     }
     
-### View department (returns department and category)
+### View department
 
 **Request**
 
@@ -797,7 +808,7 @@ POST `/admin/catalog/textSections`
       "success": true
     }
 
-### Update all text sections (use to re-order them)
+### Update all text sections
 
 **Request**
 
@@ -1350,7 +1361,7 @@ PUT `/admin/changeRequests/deny/:id`
       "success": true
     }
 
-### View all admins (both primary and secondary)
+### View all admins
 
 **Request**
 
@@ -1395,7 +1406,7 @@ POST `/admin/admins`
       "success": true
     }
 
-### Update admin (change password)
+### Update admin
 
 **Request**
 
@@ -1425,7 +1436,7 @@ DELETE `/admin/admins/:id`
 
 ## Secondary Admin Actions
 
-### View change requests (created by that admin)
+### View change requests
 
 **Request**
 
@@ -1492,7 +1503,7 @@ GET `/admin/changeRequests/userRequests`
       ]
     }
 
-### Create change request (also available to primary admin)
+### Create change request
 
 **Request**
 
@@ -1526,7 +1537,7 @@ POST `/admin/changeRequests/userRequests`
       "success": true
     }
 
-### Edit change request (that hasn't been approved/denied)
+### Edit change request
 
 **Request**
 
@@ -1545,7 +1556,7 @@ PUT `/admin/changeRequests/userRequests/:id`
       "success": true
     }
 
-### Remove change request (that hasn't been approved/denied)
+### Remove change request
 
 **Request**
 
@@ -1557,7 +1568,7 @@ DELETE `/admin/changeRequests/userRequests/:id`
       "success": true
     }
 
-### View change log (also available to primary admin)
+### View change log
 
 **Request**
 
