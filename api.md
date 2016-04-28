@@ -10,6 +10,7 @@
 - [List general requirements](#list-general-requirements)
 - [List program categories](#list-program-categories)
 - [View category/department/program details](#view-categorydepartmentprogram-details)
+    - Program details along with detials of department and/or category it is in
 - [View department](#view-department)
     - returns department and category
 - [Search programs](#search-programs)
@@ -53,7 +54,21 @@
 - [Remove course](#remove-course)
 - [Upate faculty and staff section](#update-faculty-and-staff-section)
 - [Publish catalog](#publish-catalog)
+    - Copy the database
+    - Generate pdf
+    - Add pdf to archives
+    - "lock" that version of the catalog?
 - [Preview catalog](#preview-catalog)
+    - Set `session.preview` to `true`
+    - When admin visits public catalog, a banner at the top will indicate that it is in preview mode
+    - Data displayed will be current working copy rather than published version
+- [Preview catalog PDF](#preview-catalog-pdf)
+    - Allow admin to see what pdf of catalog would look like when published
+    - Generate a pdf
+    - Don't add pdf to archives
+    - Don't copy the database
+- [Check preview status](#check-preview-status)
+    - Check if preview mode is enabled or disabled
 - [View change request queue](#view-change-request-queue)
 - [Approve change request](#approve-change-request)
 - [Deny change request](#deny-change-request)
@@ -1261,6 +1276,39 @@ POST `/admin/catalog/preview`
 
     {
       "success": true
+    }
+
+### Preview catalog PDF
+
+**Request**
+
+POST `/admin/catalog/previewPDF`
+
+    {
+      "semester": "Fall",
+      "year": "2016"
+    }
+
+**Response**
+
+    {
+      "success": true,
+      "data": "http://link-to-file.pdf"
+    }
+    
+### Check preview status
+
+**Request**
+
+GET `/admin/catalog/previewStatus`
+
+**Response**
+
+    {
+      "success": true,
+      "data": {
+        "preview": true
+      }
     }
 
 ### View change request queue
