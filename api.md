@@ -2,7 +2,20 @@
 
 * PUT requests of course specify updating a record. The way they will work in our application is that they will change the *specified fields*, but fields not specified will remain as they were. In other words, it is an change rather than a replacement of the record. So say we sent the following JSON with a PUT request: `{"name": "new name"}`. This would result in a name change only; all the other fields of that record would remain as they were.
 
-# API Requests
+# Summary
+
+- [List custom text sections](#list-custom-text-sections)
+- [View custom text section](#view-custom-text-section)
+- [List general requirements](#list-general-requirements)
+- [List program categories](#list-program-categories)
+- [View category/department/program details](#view-categorydepartmentprogram-details)
+- [View department (returns department and category)](#view-department-returns-department-and-category)
+- []()
+- []()
+- []()
+- []()
+
+# Detail
 
 ## Public User Actions
 
@@ -1165,6 +1178,17 @@ PUT `/admin/catalog/facultyAndStaff`
 **Request**
 
 POST `/admin/catalog/publish`
+
+    {
+      "semester": "Fall",
+      "year": "2016"
+    }
+    
+### Preview catalog
+
+**Request**
+
+POST `/admin/catalog/preview`
 
     {
       "semester": "Fall",
