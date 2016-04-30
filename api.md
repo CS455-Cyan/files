@@ -22,6 +22,7 @@
 - [List subjects](#list-subjects)
 - [View subject and list courses for subject](#view-subject-and-list-courses-for-subject)
 - [View faculty and staff section](#view-faculty-and-staff-section)
+- [List archived PDFs](#list-archived-pdfs)
 
 ## Primary Admin
 - [Change password](#change-password)
@@ -58,10 +59,6 @@
     - Generate pdf
     - Add pdf to archives
     - "lock" that version of the catalog?
-- [Preview catalog](#preview-catalog)
-    - Set `session.preview` to `true`
-    - When admin visits public catalog, a banner at the top will indicate that it is in preview mode
-    - Data displayed will be current working copy rather than published version
 - [Preview catalog PDF](#preview-catalog-pdf)
     - Allow admin to see what pdf of catalog would look like when published
     - Generate a pdf
@@ -764,6 +761,32 @@ GET `/catalog/facultyAndStaff`
       "data": "Dr. Roden..."
     }
     
+### List archived PDFs
+
+**Request**
+
+GET `/catalog/archives`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+        {
+            "beginYear": "2011",
+            "endYear": "2012"
+        },
+        {
+            "beginYear": "2012",
+            "endYear": "2013"
+        },
+        {
+            "beginYear": "2013",
+            "endYear": "2014"
+        }
+      ]
+    }
+    
 ## Primary Admin Actions
 
 ### Login
@@ -1257,7 +1280,7 @@ PUT `/admin/catalog/facultyAndStaff`
 POST `/admin/catalog/publish`
 
     {
-      "startYear": "2016",
+      "beginYear": "2016",
       "endYear": "2017"
     }
     
@@ -1268,7 +1291,7 @@ POST `/admin/catalog/publish`
 POST `/admin/catalog/preview`
 
     {
-      "startYear": "2016",
+      "beginYear": "2016",
       "endYear": "2017"
     }
 
