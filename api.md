@@ -64,8 +64,6 @@
     - Generate a pdf
     - Don't add pdf to archives
     - Don't copy the database
-- [Check preview status](#check-preview-status)
-    - Check if preview mode is enabled or disabled
 - [View change request queue](#view-change-request-queue)
 - [Approve change request](#approve-change-request)
 - [Deny change request](#deny-change-request)
