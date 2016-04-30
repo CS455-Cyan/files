@@ -1257,8 +1257,8 @@ PUT `/admin/catalog/facultyAndStaff`
 POST `/admin/catalog/publish`
 
     {
-      "semester": "Fall",
-      "year": "2016"
+      "startYear": "2016",
+      "endYear": "2017"
     }
     
 ### Preview catalog
@@ -1268,8 +1268,8 @@ POST `/admin/catalog/publish`
 POST `/admin/catalog/preview`
 
     {
-      "semester": "Fall",
-      "year": "2016"
+      "startYear": "2016",
+      "endYear": "2017"
     }
 
 **Response**
