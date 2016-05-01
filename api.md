@@ -1090,7 +1090,7 @@ POST `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/p
 
 **Request**
 
-PUT `/admin/catalog/programs/categoies/:categoryId/programs/:programId`
+PUT `/admin/catalog/programs/categories/:categoryId/programs/:programId`
 
     {
       "name": "Secondary Education",
