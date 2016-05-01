@@ -811,22 +811,6 @@ POST `/admin/login`
       ]
     }
 
-### Change password
-
-**Request**
-
-PUT `/admin/password`
-
-    {
-      "password": "punchcards_rock"
-    }
-
-**Response**
-
-    {
-      "success": true,
-    }
-
 ### Add text section
 
 **Request**
@@ -1432,36 +1416,6 @@ PUT `/admin/changeRequests/deny/:id`
       "success": true
     }
 
-### View all admins
-
-**Request**
-
-GET `/admin/admins`
-
-**Response**
-
-    {
-      "success": true,
-      "data": [
-        {
-          "_id": "571052e8ad4a865d3a18d465"
-          "username": "captain_america",
-          "name": "Captain America",
-          "privilege": 5,
-          "apps": ["catalog"],
-          "password": "c0a6012970d27f714cdcee6dac4da264"
-        },
-        {
-          "_id": "5710575696a0b8d03b455456",
-          "username": "sean_connery",
-          "name": "Sean Connery",
-          "privilege": 2,
-          "apps": ["catalog"],
-          "password": "c0a6012970d27f714cdcee6dac4da264"
-        }
-      ]
-    }
-
 ### Add secondary admin
 
 **Request**
@@ -1470,26 +1424,8 @@ POST `/admin/admins`
 
     {
       "username": "spiderman",
-      "name": "Spiderman",
       "password": "underoos"
     }
-
-**Response**
-
-    {
-      "success": true
-    }
-
-### Update admin
-
-**Request**
-
-PUT `/admin/admins/:id`
-
-      {
-        "name": "Johnny Appleseed",
-        "password": "password"
-      }
 
 **Response**
 
@@ -1508,8 +1444,68 @@ DELETE `/admin/admins/:id`
     {
       "success": true
     }
+    
+### Change password of admin
 
+**Request**
+
+PUT `/admin/password/:id`
+
+    {
+        "password": "punchcards_rock"
+    }
+
+**Response**
+
+    {
+        "success": true
+    }
+
+### View admins
+
+**Request**
+
+GET `/admin/admins`
+
+**Response**
+
+    {
+      "success": true,
+      "data": [
+        {
+          "_id": "571052e8ad4a865d3a18d465"
+          "username": "captain_america",
+          "privilege": 5,
+          "apps": ["catalog"],
+          "password": "c0a6012970d27f714cdcee6dac4da264"
+        },
+        {
+          "_id": "5710575696a0b8d03b455456",
+          "username": "sean_connery",
+          "privilege": 2,
+          "apps": ["catalog"],
+          "password": "c0a6012970d27f714cdcee6dac4da264"
+        }
+      ]
+    }
+    
 ## Secondary Admin Actions
+
+### Change password
+
+**Request**
+
+PUT `/admin/password`
+
+    {
+        "password": "punchcards_rock"
+    }
+
+**Response**
+
+    {
+        "success": true
+    }
 
 ### View change requests
 
