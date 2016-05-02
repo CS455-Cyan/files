@@ -67,7 +67,7 @@
 - [View change request queue](#view-change-request-queue)
 - [Approve change request](#approve-change-request)
 - [Deny change request](#deny-change-request)
-- [View all admins](#view-all-admins)
+- [View all admins](#view-admins)
     - both primary and secondary
 - [Add secondary admin](#add-secondary-admin)
 - [Change password of admin](#change-password-of-admin)
