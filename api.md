@@ -811,6 +811,9 @@ POST `/admin/login`
       ]
     }
 
+---
+---
+
 ### Add text section
 
 **Request**
@@ -828,23 +831,12 @@ POST `/admin/catalog/textSections`
       "success": true
     }
 
-### Update all text sections
+### Remove text section
 
 **Request**
 
-PUT `/admin/catalog/textSections`
-
-    [
-      {
-        "title": "Academic Procedures",
-        "_id": "570f26c853838f1f11b2a89f"
-      },
-      {
-        "title": "University Information",
-        "_id": "570f26c853838f1f11b2a8a0"
-      }
-    ]
-        
+DELETE `/admin/catalog/textSections/:id`
+    
 **Response**
 
     {
@@ -868,18 +860,6 @@ PUT `/admin/catalog/textSections/:id`
       "success": true
     }
 
-### Remove text section
-
-**Request**
-
-DELETE `/admin/catalog/textSections/:id`
-    
-**Response**
-
-    {
-      "success": true
-    }
-    
 ### Reorder text sections
 
 This should just be a list of id's of textSections. On the backend textSections will be rearranged in this specified order.
@@ -901,7 +881,10 @@ PUT `/admin/catalog/textSectionsOrder`
     {
       "success": true
     }
-    
+
+---
+---
+
 ### Add general requirement
 
 **Request**
@@ -926,6 +909,18 @@ POST `/admin/catalog/generalRequirements/:area`
       "success": true
     }
 
+### Remove general requirement
+
+**Request**
+
+DELETE `/admin/catalog/generalRequirements/:area/:requirementId`
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Update general requirement
 
 **Request**
@@ -941,18 +936,9 @@ PUT `/admin/catalog/generalRequirements/:area/:requirementId`
     {
       "success": true
     }
-    
-### Remove general requirement
 
-**Request**
-
-DELETE `/admin/catalog/generalRequirements/:area/:requirementId`
-
-**Response**
-
-    {
-      "success": true
-    }
+---
+---
 
 ### Add program category
 
@@ -964,6 +950,18 @@ POST `/admin/catalog/programs/categories`
       "name": "College of Nursing",
       "description": "scrubs"
     }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove program category
+
+**Request**
+
+DELETE `/admin/catalog/programs/categories/:id`
 
 **Response**
 
@@ -988,17 +986,8 @@ PUT `/admin/catalog/programs/categories/:id`
       "success": true
     }
 
-### Remove program category
-
-**Request**
-
-DELETE `/admin/catalog/programs/categories/:id`
-
-**Response**
-
-    {
-      "success": true
-    }
+---
+---
 
 ### Add department
 
@@ -1011,6 +1000,18 @@ POST `/admin/catalog/programs/categories/:categoryId/departments`
       "description": "Controversial sh*t",
       "programs": []
     }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove department
+
+**Request**
+
+DELETE `/admin/catalog/programs/categories/:categoryId/departments/:departmentId`
 
 **Response**
 
@@ -1036,17 +1037,8 @@ PUT `/admin/catalog/programs/categories/:categoryId/departments/:departmentId`
       "success": true
     }
 
-### Remove department
-
-**Request**
-
-DELETE `/admin/catalog/programs/categories/:categoryId/departments/:departmentId`
-
-**Response**
-
-    {
-      "success": true
-    }
+---
+---
 
 ### Add program to category
 
@@ -1079,6 +1071,30 @@ POST `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/p
       "type": "major",
       "requirements": []
     }
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove program from category
+
+**Request**
+
+DELETE `/admin/catalog/programs/categoies/:categoryId/programs/:programI`
+
+**Response**
+
+    {
+      "success": true
+    }
+
+### Remove program from department
+
+**Request**
+
+DELETE `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/programs/:programId`
 
 **Response**
 
@@ -1122,29 +1138,8 @@ PUT `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/pr
       "success": true
     }
 
-### Remove program from category
-
-**Request**
-
-DELETE `/admin/catalog/programs/categoies/:categoryId/programs/:programI`
-
-**Response**
-
-    {
-      "success": true
-    }
-
-### Remove program from department
-
-**Request**
-
-DELETE `/admin/catalog/programs/categories/:categoryId/departments/:departmentId/programs/:programId`
-
-**Response**
-
-    {
-      "success": true
-    }
+---
+---
 
 ### Add course subject
 
@@ -1163,6 +1158,18 @@ POST `/admin/catalog/subjects`
       "success": true
     }
 
+### Remove course subject
+
+**Request**
+
+DELETE `/admin/catalog/subjects/:id`
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Update course subject
 
 **Request**
@@ -1173,18 +1180,6 @@ PUT `/admin/catalog/subjects/:id`
       "name": "Sociology",
       "abbreviation": "SO"
     }
-
-**Response**
-
-    {
-      "success": true
-    }
-
-### Remove course subject
-
-**Request**
-
-DELETE `/admin/catalog/subjects/:id`
 
 **Response**
 
@@ -1211,6 +1206,18 @@ POST `/admin/catalog/courses`
       "success": true
     }
 
+### Remove course
+
+**Request**
+
+DELETE `/admin/catalog/courses/:courseId`
+
+**Response**
+
+    {
+      "success": true
+    }
+
 ### Update course
 
 **Request**
@@ -1227,17 +1234,8 @@ POST `/admin/catalog/courses/:courseId`
       "success": true
     }
 
-### Remove course
-
-**Request**
-
-DELETE `/admin/catalog/courses/:courseId`
-
-**Response**
-
-    {
-      "success": true
-    }
+---
+---
 
 ### Update faculty and staff section
 
@@ -1254,6 +1252,9 @@ PUT `/admin/catalog/facultyAndStaff`
     {
       "success": true
     }
+
+---
+---
 
 ### Publish catalog
 
@@ -1315,6 +1316,9 @@ GET `/admin/catalog/previewStatus`
         "preview": true
       }
     }
+
+---
+---
 
 ### View change request queue
 
@@ -1416,6 +1420,9 @@ PUT `/admin/changeRequests/deny/:id`
       "success": true
     }
 
+---
+---
+
 ### Add secondary admin
 
 **Request**
@@ -1506,6 +1513,9 @@ PUT `/admin/password`
     {
         "success": true
     }
+
+---
+---
 
 ### View change requests
 
