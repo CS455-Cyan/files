@@ -70,8 +70,8 @@
 - [View all admins](#view-all-admins)
     - both primary and secondary
 - [Add secondary admin](#add-secondary-admin)
-- [Update admin](#update-admin)
-    - Change password
+- [Change password of admin](#change-password-of-admin)
+    - Change password of primary admin
 - [Remove secondary admin](#remove-secondary-admin)
 
 ##Secondary Admin
