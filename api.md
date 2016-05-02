@@ -27,8 +27,6 @@
 ## Primary Admin
 - [Change password](#change-password)
 - [Add text section](#add-text-section)
-- [Update all text sections](#update-all-text-sections)
-    - use to re-order them
 - [Update text section](#update-text-section)
 - [Remove text section](#remove-text-section)
 - [Reorder text sections](#reorder-text-sections)
